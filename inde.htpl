@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday, You</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#FFB8BF;
+    color:white;
+    font-family:'DM Sans',sans-serif;
+    overflow:hidden;
+}
+
+.page{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:25px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(20px);
+
+    transition:
+    opacity 1.1s ease,
+    transform 1.1s ease;
+}
+
+.page.active{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.content{
+    width:min(650px,100%);
+    text-align:center;
+}
+
+.small{
+    color:#555;
+    font-size:9px;
+    letter-spacing:5px;
+}
+
+.serif{
+    font-family:'Playfair Display',serif;
+}
+
+button{
+    margin-top:30px;
+
+    padding:12px 27px;
+
+    border:1px solid #444;
+    border-radius:30px;
+
+    background:transparent;
+    color:white;
+
+    cursor:pointer;
+
+    transition:.4s;
+}
+
+button:hover{
+    background:white;
+    color:#111;
+}
+
+
+/* =========================
+OPENING
+========================= */
+
+#opening{
+    background:
+    radial-gradient(
+        circle,
+        #292929,
+        #050505 75%
+    );
+}
+
+.title{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:
+    clamp(55px,13vw,105px);
+
+    line-height:.85;
+
+    margin-top:25px;
+
+}
+
+.sub{
+    color:#777;
+
+    font-size:13px;
+
+    line-height:2;
+
+    margin-top:30px;
+}
+
+
+/* =========================
+ROAST
+========================= */
+
+#roast{
+    background:#eeeae2;
+    color:#222;
+}
+
+.roast-title{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:
+    clamp(45px,10vw,75px);
+
+    line-height:1;
+
+}
+
+.roast-text{
+
+    margin-top:30px;
+
+    color:#777;
+
+    font-size:14px;
+
+    line-height:2.2;
+
+}
+
+.roast-box{
+
+    margin-top:25px;
+
+    padding:20px;
+
+    background:white;
+
+    border-radius:12px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.1);
+
+}
+
+
+/* =========================
+PHOTO
+========================= */
+
+.photo-page{
+    background:#090909;
+}
+
+.photo{
+
+    width:min(330px,76vw);
+
+    height:420px;
+
+    object-fit:cover;
+
+    border-radius:7px;
+
+    box-shadow:
+    0 35px 100px rgba(0,0,0,.8);
+
+    animation:
+    photoIn 1.5s ease;
+}
+
+@keyframes photoIn{
+
+    from{
+        opacity:0;
+        transform:
+        scale(.9)
+        translateY(25px);
+        filter:blur(6px);
+    }
+
+    to{
+        opacity:1;
+        transform:
+        scale(1)
+        translateY(0);
+        filter:blur(0);
+    }
+
+}
+
+.caption{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:27px;
+
+    margin-top:24px;
+}
+
+.text{
+
+    color:#777;
+
+    font-size:13px;
+
+    line-height:2;
+
+    margin-top:12px;
+}
+
+
+/* =========================
+ROAST 2
+========================= */
+
+#roast2{
+    background:#111;
+}
+
+.roast2-title{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:
+    clamp(42px,9vw,70px);
+
+    line-height:1.05;
+}
+
+.roast2-text{
+
+    color:#777;
+
+    margin-top:30px;
+
+    line-height:2.2;
+
+    font-size:14px;
+}
+
+
+/* =========================
+MEMORY
+========================= */
+
+#memory{
+
+    background:
+    radial-gradient(
+        circle,
+        #222,
+        #030303 75%
+    );
+}
+
+.memory-title{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:
+    clamp(42px,9vw,72px);
+
+    line-height:1.05;
+}
+
+.memory-text{
+
+    color:#888;
+
+    margin-top:30px;
+
+    font-size:14px;
+
+    line-height:2.2;
+}
+
+
+/* =========================
+TOGETHER
+========================= */
+
+#together{
+    background:#030303;
+}
+
+.together-photo{
+
+    width:min(700px,92vw);
+
+    max-height:65vh;
+
+    object-fit:contain;
+
+    box-shadow:
+    0 40px 120px rgba(0,0,0,.9);
+
+    animation:
+    togetherIn 2.5s ease;
+
+}
+
+@keyframes togetherIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.9);
+
+        filter:blur(8px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+        filter:blur(0);
+
+    }
+
+}
+
+.together-title{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:31px;
+
+    margin-top:25px;
+}
+
+.together-text{
+
+    color:#777;
+
+    font-size:13px;
+
+    line-height:2;
+
+    margin-top:12px;
+}
+
+
+/* =========================
+EMOTIONAL
+========================= */
+
+#emotional{
+
+    background:
+    radial-gradient(
+        circle,
+        #191919,
+        #020202 75%
+    );
+}
+
+.emotional-title{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:
+    clamp(43px,9vw,72px);
+
+    line-height:1.05;
+}
+
+.emotional-text{
+
+    color:#888;
+
+    margin-top:30px;
+
+    font-size:14px;
+
+    line-height:2.3;
+}
+
+.italic{
+
+    font-family:'Playfair Display',serif;
+
+    font-style:italic;
+
+    color:#aaa;
+
+    font-size:18px;
+}
+
+
+/* =========================
+FINAL
+========================= */
+
+#final{
+
+    background:
+    radial-gradient(
+        circle,
+        #292929,
+        #040404 75%
+    );
+}
+
+.final-title{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:
+    clamp(55px,13vw,105px);
+
+    line-height:.85;
+}
+
+.final-text{
+
+    color:#888;
+
+    margin-top:30px;
+
+    font-size:14px;
+
+    line-height:2.2;
+}
+
+.signature{
+
+    margin-top:40px;
+
+    color:#444;
+
+    font-size:9px;
+
+    letter-spacing:4px;
+}
+
+
+/* =========================
+PARTICLES
+========================= */
+
+.particle{
+
+    position:fixed;
+
+    bottom:-20px;
+
+    color:#777;
+
+    pointer-events:none;
+
+    animation:
+    floatUp 7s linear forwards;
+}
+
+@keyframes floatUp{
+
+    0%{
+        opacity:0;
+        transform:translateY(0);
+    }
+
+    20%{
+        opacity:.4;
+    }
+
+    100%{
+        opacity:0;
+        transform:
+        translateY(-110vh)
+        rotate(360deg);
+    }
+
+}
+
+
+/* =========================
+MUSIC
+========================= */
+
+.music{
+
+    position:fixed;
+
+    top:22px;
+    right:22px;
+
+    color:#444;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    z-index:100;
+
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+OPENING
+========================= -->
+
+<section id="opening" class="page active">
+
+<div class="content">
+
+<div class="small">
+WARNING
+</div>
+
+<div class="title">
+Happy<br>
+Birthday.
+</div>
+
+<div class="sub">
+
+Website ini dibuat dengan
+niat baik.
+
+<br>
+
+Tapi kemungkinan ada
+sedikit penghinaan.
+
+<br><br>
+
+Silakan lanjut kalau
+mental sudah siap.
+
+</div>
+
+<button onclick="go('opening','roast')">
+lanjut →
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+ROAST
+========================= -->
+
+<section id="roast" class="page">
+
+<div class="content">
+
+<div class="small">
+FIRST OF ALL
+</div>
+
+<div class="roast-title">
+Selamat<br>
+bertambah tua.
+</div>
+
+<div class="roast-text">
+
+Umur bertambah.
+
+<br>
+
+Kedewasaan...
+
+<br>
+
+masih dalam tahap
+penelitian.
+
+</div>
+
+<div class="roast-box">
+
+Jangan khawatir.
+
+<br>
+
+Muka masih bisa
+dipertahankan.
+
+<br>
+
+Tingkah laku?
+Itu urusan nanti.
+
+</div>
+
+<button onclick="go('roast','photo1')">
+oke cukup →
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+PHOTO 1
+========================= -->
+
+<section id="photo1" class="page photo-page">
+
+<div class="content">
+
+<div class="small">
+EVIDENCE #01
+</div>
+
+<img src="foto1.jpg" class="photo">
+
+<div class="caption">
+Oke, yang ini aman.
+</div>
+
+<div class="text">
+
+Masih kelihatan
+seperti manusia baik.
+
+<br>
+
+Untuk sementara.
+
+</div>
+
+<button onclick="go('photo1','photo2')">
+lihat lagi →
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+PHOTO 2
+========================= -->
+
+<section id="photo2" class="page photo-page">
+
+<div class="content">
+
+<div class="small">
+EVIDENCE #02
+</div>
+
+<img src="foto2.jpg" class="photo">
+
+<div class="caption">
+Nah kalau yang ini...
+</div>
+
+<div class="text">
+
+Entah kenapa makin dilihat
+makin kelihatan kalau
+orang ini memang agak
+susah ditebak.
+
+<br><br>
+
+Tapi ya...
+
+masih oke lah.
+
+</div>
+
+<button onclick="go('photo2','roast2')">
+lanjut →
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+ROAST 2
+========================= -->
+
+<section id="roast2" class="page">
+
+<div class="content">
+
+<div class="small">
+SERIOUS QUESTION
+</div>
+
+<div class="roast2-title">
+
+Kenapa ya<br>
+orang kayak lo<br>
+bisa punya tempat<br>
+di ingatan orang?
+
+</div>
+
+<div class="roast2-text">
+
+Padahal nggak tiap hari
+ketemu.
+
+<br><br>
+
+Nggak tiap hari chat.
+
+<br><br>
+
+Kadang cuma muncul
+sebentar...
+
+<br>
+
+terus hilang lagi.
+
+<br><br>
+
+Aneh.
+
+</div>
+
+<button onclick="go('roast2','memory')">
+mungkin karena...
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+MEMORY
+========================= -->
+
+<section id="memory" class="page">
+
+<div class="content">
+
+<div class="small">
+MAYBE THIS
+</div>
+
+<div class="memory-title">
+
+Karena beberapa<br>
+orang datang<br>
+di waktu yang tepat.
+</div>
+
+<div class="memory-text">
+
+Bukan berarti harus selalu
+ada.
+
+<br><br>
+
+Bukan berarti harus selalu
+dekat.
+
+<br><br>
+
+Kadang seseorang cuma
+pernah menjadi bagian
+dari satu masa...
+
+<br><br>
+
+dan entah bagaimana,
+masa itu tetap terasa
+hangat ketika diingat.
+
+<br><br>
+
+Mungkin sesederhana itu.
+
+</div>
+
+<button onclick="go('memory','together')">
+lihat kenangannya →
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+TOGETHER
+========================= -->
+
+<section id="together" class="page">
+
+<div class="content">
+
+<div class="small">
+ONE OLD MEMORY
+</div>
+
+<img src="foto3.jpg" class="together-photo">
+
+<div class="together-title">
+
+Ternyata pernah sampai
+di sini.
+</div>
+
+<div class="together-text">
+
+Dulu mungkin cuma
+sebuah foto.
+
+<br><br>
+
+Sekarang jadi salah satu
+hal kecil yang bikin
+tersenyum ketika dilihat
+lagi.
+
+</div>
+
+<button onclick="go('together','emotional')">
+terakhir →
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+EMOTIONAL
+========================= -->
+
+<section id="emotional" class="page">
+
+<div class="content">
+
+<div class="small">
+SOME THINGS
+</div>
+
+<div class="emotional-title">
+
+Mungkin ada<br>
+hal-hal yang<br>
+memang tidak<br>
+sempat terjadi.
+</div>
+
+<div class="emotional-text">
+
+Dan nggak apa-apa.
+
+<br><br>
+
+Karena nggak semua cerita
+harus punya akhir yang
+berbeda.
+
+<br><br>
+
+Ada cerita yang cukup
+pernah ada.
+
+<br><br>
+
+Cukup pernah membuat
+kita senang.
+
+<br><br>
+
+Cukup pernah menjadi
+sesuatu yang diam-diam
+kita simpan.
+
+<br><br>
+
+<span class="italic">
+Dan mungkin justru
+karena tidak pernah
+selesai, ia tetap indah
+untuk diingat.
+</span>
+
+</div>
+
+<button onclick="go('emotional','final')">
+happy birthday →
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+FINAL
+========================= -->
+
+<section id="final" class="page">
+
+<div class="content">
+
+<div class="small">
+NO ROASTING ANYMORE
+</div>
+
+<div class="final-title">
+Happy<br>
+Birthday.
+</div>
+
+<div class="final-text">
+
+Semoga umur baru ini
+membawa banyak hal baik.
+
+<br><br>
+
+Semoga lo selalu punya
+alasan untuk tertawa,
+orang-orang baik di
+sekeliling lo, dan banyak
+momen yang layak disimpan.
+
+<br><br>
+
+Kalau suatu hari nanti
+kita sudah sibuk dengan
+jalan masing-masing...
+
+<br><br>
+
+semoga ketika melihat
+kembali foto-foto lama,
+
+lo masih bisa tersenyum.
+
+<br><br>
+
+Karena ternyata...
+
+<br>
+
+pernah ada masa
+sesederhana ini.
+
+<br><br>
+
+Makasih sudah pernah
+menjadi bagian kecil
+dari cerita yang gue
+ingat dengan baik.
+
+<br><br>
+
+<b>
+Have a beautiful year.
+</b>
+
+</div>
+
+<div class="signature">
+— from your friend
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- MUSIC -->
+
+<div class="music" onclick="toggleMusic()">
+♫ ABOUT YOU
+</div>
+
+<audio id="audio" loop>
+
+<source src="lagu.mp3" type="audio/mpeg">
+
+</audio>
+
+
+
+<script>
+
+const audio =
+document.getElementById("audio");
+
+let playing=false;
+
+
+/* =========================
+PAGE TRANSITION
+========================= */
+
+function go(current,next){
+
+    document
+    .getElementById(current)
+    .classList.remove("active");
+
+    setTimeout(()=>{
+
+        document
+        .getElementById(next)
+        .classList.add("active");
+
+    },500);
+
+
+    /* MUSIC */
+
+    if(!playing){
+
+        audio.volume=.08;
+
+        audio.play()
+        .then(()=>{
+            playing=true;
+        })
+        .catch(()=>{});
+
+    }
+
+
+    /* MUSIC BUILD */
+
+    if(next==="photo1"){
+        fade(.10,1500);
+    }
+
+    if(next==="photo2"){
+        fade(.13,1500);
+    }
+
+    if(next==="roast2"){
+        fade(.17,1500);
+    }
+
+    if(next==="memory"){
+        fade(.22,1800);
+    }
+
+    /* FOTO KALIAN */
+
+    if(next==="together"){
+        fade(.42,3000);
+    }
+
+    if(next==="emotional"){
+        fade(.50,2500);
+    }
+
+    if(next==="final"){
+
+        fade(.35,2500);
+
+        particles();
+
+    }
+
+}
+
+
+/* =========================
+VOLUME FADE
+========================= */
+
+function fade(target,duration){
+
+    const start=audio.volume;
+
+    const steps=50;
+
+    let i=0;
+
+    const timer=setInterval(()=>{
+
+        i++;
+
+        audio.volume=
+        start+
+        ((target-start)*(i/steps));
+
+        if(i>=steps){
+            clearInterval(timer);
+        }
+
+    },duration/steps);
+
+}
+
+
+/* =========================
+MUSIC BUTTON
+========================= */
+
+function toggleMusic(){
+
+    if(playing){
+
+        audio.pause();
+
+        playing=false;
+
+    }else{
+
+        audio.play();
+
+        audio.volume=.35;
+
+        playing=true;
+
+    }
+
+}
+
+
+/* =========================
+PARTICLES
+========================= */
+
+function particles(){
+
+    setInterval(()=>{
+
+        const p=
+        document.createElement("div");
+
+        p.className="particle";
+
+        p.innerHTML=
+        Math.random()>.5
+        ?"♡"
+        :"✦";
+
+        p.style.left=
+        Math.random()*100+"vw";
+
+        p.style.fontSize=
+        (8+Math.random()*12)+"px";
+
+        p.style.animationDuration=
+        (5+Math.random()*4)+"s";
+
+        document.body.appendChild(p);
+
+        setTimeout(()=>{
+            p.remove();
+        },9000);
+
+    },600);
+
+}
+
+</script>
+
+</body>
+</html>
